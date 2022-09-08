@@ -1,0 +1,3 @@
+# Ignore source and destination test folders
+/source_dir
+/destination_dir
