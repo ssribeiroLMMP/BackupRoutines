@@ -14,9 +14,11 @@ echo "Destination: " $destination
 for file in $(find $source -printf "%P\n") ; do
     # If file in source directory exists in destination directory
     if [ -a $destination/$file ] ; then
+        # If the file was modifiled, replace it
         if [ $source/$file -nt $destination/$file ] ; then
         echo "newer file detected, copying"
         scp -r $source/$file $destination/$file
+        # If file exists, skip it
         else
         echo "file $file exists, skipping"
         fi
